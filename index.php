@@ -55,6 +55,38 @@ switch($_GET['type']){
         echo 'no error log';
         break;
 }
+
+//The secret Koen way is Logger:addrecord();
+/*/**
+  * {@InheritDoc}
+  */
+// example:
+/* public static function log($message, $level = Logger::INFO, $context = array())
+ {
+     static $_firstRun = true;
+     if ($_firstRun || !static::$_logFileValid) {
+         static::_checkLogFile();
+         $_firstRun = false;
+     }
+     //	Get the indent, if any
+     $_unindent = ($_newIndent = static::_processMessage($message)) > 0;
+     //	Indent...
+     if (0 > ($_tempIndent = static::$_currentIndent - ($_unindent ? 1 : 0))) {
+         $_tempIndent = 0;
+     }
+     $_message = str_repeat('  ', $_tempIndent) . $message;
+     if (!is_numeric($level)) {
+         $level = LoggingLevels::toNumeric($level);
+     }
+     if (static::$_logger) {
+         static::$_logger->addRecord($level, $_message, !is_array($context) ? array() : $context);
+     } elseif (static::$_fallbackLogger) {
+         static::$_fallbackLogger->addRecord($level, $_message, $context);
+     }
+     //	Set indent level...
+     static::$_currentIndent += $_newIndent;
+     //	Anything over a warning returns false so you can chain
+     return Logger::WARNING > $level;*/
 ?>
 <!doctype html>
 <html lang="en">
